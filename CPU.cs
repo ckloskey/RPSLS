@@ -8,14 +8,27 @@ namespace RPSSL
 {
     class CPU : Player
     {
-        public override void GestureValidation()
+        string computerGesture;
+        int randomIndex;
+        public override string SetGesture()
         {
-            base.GestureValidation();
+            base.SetGesture();
+            Random random = new Random(); //random instance -- may have to generate first and then pass for more random results
+            randomIndex = RandomNumber(random);          //generates random number 
+            gestureChosen = ComputerGesture(randomIndex);
+            return gestureChosen;
         }
-
-        public override string GetGesture()
+        private static int RandomNumber(Random random)
         {
-            return base.GetGesture();
+            int randomGesture;
+           return randomGesture = random.Next(5); //change '5' to list length
+        }
+        private string ComputerGesture(int random)
+        {//call list
+            //get n'th index of list
+            //return as string
+            computerGesture = allGestures.ElementAt(random);
+            return computerGesture;
         }
     }
 }

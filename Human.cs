@@ -8,14 +8,25 @@ namespace RPSSL
 {
     class Human : Player
     {
-        public override void GestureValidation()
+        public Human()
         {
-            base.GestureValidation();
+
+        }
+        public override string SetGesture()
+        {
+            base.SetGesture();
+            Console.WriteLine("Choose Gesture:");
+            gestureChosen = Console.ReadLine();
+            return gestureChosen;
         }
 
-        public override string GetGesture()
+        public void GestureValidation(string gestureToValidate)
         {
-            return base.GetGesture();
+            //create error handler for invalid inputs
+            if (allGestures.Contains(gestureChosen, StringComparer.OrdinalIgnoreCase))
+            {
+                Console.WriteLine("It's all good");
+            }
         }
     }
 }
