@@ -10,7 +10,6 @@ namespace RPSSL
     {
         public Human()
         {
-
         }
         public override string SetGesture()
         {
@@ -25,7 +24,7 @@ namespace RPSSL
             //create error handler for invalid inputs
             if (allGestures.Contains(gestureChosen, StringComparer.OrdinalIgnoreCase))
             {
-                Console.WriteLine("It's all good");
+                Console.WriteLine("It's all good"); //just used for testing
             }
         }
     }

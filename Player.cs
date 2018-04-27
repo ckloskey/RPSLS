@@ -13,7 +13,6 @@ namespace RPSSL
         public List<string> allGestures = new List<string>() { "Rock", "Paper", "Scissors", "Spock", "Lizard" };
         public Player()
         {
-
         }
         //member methods
         public virtual string SetGesture() => gestureChosen;
