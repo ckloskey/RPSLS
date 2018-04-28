@@ -10,15 +10,8 @@ namespace RPSSL
     {
         public Human()
         {
+            score = 0;
         }
-        public override string SetGesture()
-        {
-            base.SetGesture();
-            Console.WriteLine("Choose Gesture:");
-            gestureChosen = Console.ReadLine();
-            return gestureChosen;
-        }
-
         public void GestureValidation(string gestureToValidate)
         {
             //create error handler for invalid inputs

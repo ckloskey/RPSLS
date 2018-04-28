@@ -8,25 +8,16 @@ namespace RPSSL
 {
     class CPU : Player
     {
-        string computerGesture;
-        int randomIndex;
-        public override string SetGesture()
+        public CPU()
         {
-            base.SetGesture();
-            Random random = new Random(); //may have to generate first in game class and then pass for more random results
-            randomIndex = RandomNumber(random);
-            gestureChosen = ComputerGesture(randomIndex);
-            return gestureChosen;
+            score = 0;
         }
-        private int RandomNumber(Random random)
+        public string GetRandomGesture()
         {
-            int randomGesture;
-           return randomGesture = random.Next(allGestures.Count);
-        }
-        private string ComputerGesture(int random)
-        {
-            computerGesture = allGestures.ElementAt(random);
-            return computerGesture;
+            Random random = new Random();
+            int randomNumber = random.Next(allGestures.Count);
+            string randomGesture = allGestures.ElementAt(randomNumber);
+            return randomGesture;
         }
     }
 }
