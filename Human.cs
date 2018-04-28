@@ -12,12 +12,16 @@ namespace RPSSL
         {
             score = 0;
         }
-        public void GestureValidation(string gestureToValidate)
+        public bool GestureValidation(string gestureToValidate)
         {
             //create error handler for invalid inputs
-            if (allGestures.Contains(gestureChosen, StringComparer.OrdinalIgnoreCase))
+            if (allGestures.Contains(gestureToValidate, StringComparer.OrdinalIgnoreCase))
             {
-                Console.WriteLine("It's all good"); //just used for testing
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }

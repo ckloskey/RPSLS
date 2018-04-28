@@ -8,14 +8,12 @@ namespace RPSSL
 {
     class Player
     {
-        //member variables
         public string gestureChosen;
         public int score;
-        public List<string> allGestures = new List<string>() { "Rock", "Paper", "Scissors", "Spock", "Lizard" };
+        public List<string> allGestures = new List<string>() { "rock", "paper", "scissors", "spock", "lizard" };
         public Player()
         {
         }
-        //member methods
         public void SetGesture(string setHumanGesture)
         {
             gestureChosen = setHumanGesture;

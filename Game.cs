@@ -8,9 +8,7 @@ namespace RPSSL
 {
     class Game
     {
-        //gestures must be valid
         string numOfPlayers;
-
         public Game()
         {
             
@@ -27,14 +25,10 @@ namespace RPSSL
 
             while (playerOne.GetScore() < 2 && playerTwo.GetScore() < 2)
             {
-                string userGesture = "";
                 switch (numOfPlayers)
                 {
                     case "1":
-                        Console.WriteLine("Choose Gesture:");
-                        userGesture = Console.ReadLine();
-                        human.SetGesture(userGesture);
-                        human.GestureValidation(human.GetGesture());
+                        GetUserInput(human, "Player One");
                         playerOne = human;
 
                         string randomCpuGesture = computer.GetRandomGesture();
@@ -44,16 +38,10 @@ namespace RPSSL
                         playerTwo = computer;
                         break;
                     case "2":
-                        Console.WriteLine("Choose Gesture:");
-                        userGesture = Console.ReadLine();
-                        human.SetGesture(userGesture);
-                        human.GestureValidation(human.GetGesture());
+                        GetUserInput(human, "Player One");
                         playerOne = human;
 
-                        Console.WriteLine("Choose Gesture:");
-                        userGesture = Console.ReadLine();
-                        human2.SetGesture(userGesture);
-                        human2.GestureValidation(human2.GetGesture());
+                        GetUserInput(human2, "Player Two");
                         playerTwo = human2;
                         break;
                     default:
@@ -70,15 +58,13 @@ namespace RPSSL
             List<string> fullList = player1.allGestures;
             int player1Score = player1.GetScore();
             int player2Score = player2.GetScore();
-            string player1Gesture = player1.GetGesture();
-            string player2Gesture = player2.GetGesture();
+            string player1Gesture = player1.GetGesture().ToLower();
+            string player2Gesture = player2.GetGesture().ToLower();
             int a = fullList.IndexOf(player1Gesture);
             int b = fullList.IndexOf(player2Gesture);
 
             int d;
             d = ((5 + a - b) % 5);
-
-            //if d == 2 or 4 player1 wins
             if (d == 1 || d == 3)
             {
                 player1Score++;
@@ -93,10 +79,21 @@ namespace RPSSL
             }
             else
             {
-                //if d == 0, tie
                 Console.WriteLine("Tie");
             }
         }
-
+        public string GetUserInput(Human human, string whichPlayer)
+        {
+            bool validInput;
+            string userInput;
+            do
+            {
+                Console.WriteLine(whichPlayer + " Choose Gesture:");
+                userInput = Console.ReadLine();
+                validInput = human.GestureValidation(userInput);
+            } while (validInput == false);
+            human.SetGesture(userInput);
+            return userInput;
+        }
     }
 }
