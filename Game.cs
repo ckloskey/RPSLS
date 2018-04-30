@@ -120,45 +120,47 @@ namespace RPSSL
 
         public void ResultsWithVerb(string firstGesture, string secondGesture)
         {
-            if ((firstGesture == "rock" && secondGesture == "scissors") || (firstGesture == "scissors" && secondGesture == "rock"))
+            if (firstGesture == "rock" || secondGesture == "rock")
             {
-                Console.WriteLine("Rock crushes Scissors");
-            }
-            else if ((firstGesture == "scissors" && secondGesture == "paper") || (firstGesture == "paper" && secondGesture == "scissors"))
+                if (firstGesture == "paper" || secondGesture == "paper")
+                {
+                    Console.WriteLine("Paper covers Rock");
+                }
+                else if (firstGesture == "scissors" || secondGesture == "scissors")
+                {
+                    Console.WriteLine("Rock crushes Scissors");
+                }
+                else if (firstGesture == "lizard" || secondGesture == "lizard")
+                {
+                    Console.WriteLine("Rock crushes Lizard");
+                }else
+                {
+                    Console.WriteLine("Spock vaporizes Rock");
+                }
+            }else if (firstGesture == "paper" || secondGesture == "paper")
             {
-                Console.WriteLine("Scissors cuts Paper");
-            }
-            else if ((firstGesture == "paper" && secondGesture == "rock") || (firstGesture == "rock" && secondGesture == "paper"))
+                if (firstGesture == "scissors" || secondGesture == "scissors")
+                {
+                    Console.WriteLine("Scissors cuts Paper");
+                }else if (firstGesture == "lizard" || secondGesture == "lizard")
+                {
+                    Console.WriteLine("Lizard eats Paper");
+                }else
+                {
+                    Console.WriteLine("Paper disproves Spock");
+                }
+            } else if (firstGesture == "scissors" || secondGesture == "scissors")
             {
-                Console.WriteLine("Paper covers Rock");
-            }
-            else if ((firstGesture == "rock" && secondGesture == "lizard") || (firstGesture == "lizard" && secondGesture == "rock"))
-            {
-                Console.WriteLine("Rock crushes Lizard");
-            }
-            else if ((firstGesture == "lizard" && secondGesture == "spock") || (firstGesture == "spock" && secondGesture == "lizard"))
+                if (firstGesture == "lizard" || secondGesture == "lizard")
+                {
+                    Console.WriteLine("Scissors decapitates Lizard");
+                }else
+                {
+                    Console.WriteLine("Spock smashes Scissors");
+                }
+            }else
             {
                 Console.WriteLine("Lizard poisons Spock");
-            }
-            else if ((firstGesture == "spock" && secondGesture == "scissors") || (firstGesture == "scissors" && secondGesture == "spock"))
-            {
-                Console.WriteLine("Spock smashes Scissors");
-            }
-            else if ((firstGesture == "scissors" && secondGesture == "lizard") || (firstGesture == "lizard" && secondGesture == "scissors"))
-            {
-                Console.WriteLine("Scissors decapitates Lizard");
-            }
-            else if ((firstGesture == "lizard" && secondGesture == "paper") || (firstGesture == "paper" && secondGesture == "lizard"))
-            {
-                Console.WriteLine("Lizard eats Paper");
-            }
-            else if ((firstGesture == "rock" && secondGesture == "spock") || (firstGesture == "spock" && secondGesture == "rock"))
-            {
-                Console.WriteLine("Spock vaporizes Rock");
-            }
-            else
-            {
-                Console.WriteLine("Paper disproves Spock");
             }
         }
     }
