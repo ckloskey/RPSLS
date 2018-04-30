@@ -18,3 +18,4 @@ Spock smashes Scissors;
 Scissors decapitates Lizard;
 Lizard eats Paper;
 Paper disproves Spock;
+Spock vaporizes Rock;
