@@ -15,14 +15,34 @@ namespace RPSSL
         }
         public void RunGame()
         {
-            Player playerOne = new Player();
-            Player playerTwo = new Player();
             Console.WriteLine("How many players?");
             numOfPlayers = Console.ReadLine();
+            try
+            {
+                if (numOfPlayers.ToLower() == "one" || numOfPlayers == "1")
+                {
+                    numOfPlayers = "1";
+                }
+                else if (numOfPlayers.ToLower() == "two" || numOfPlayers == "2")
+                {
+                    numOfPlayers = "2";
+                }
+                else
+                {
+                    throw new ArgumentException("Please indicate whether '1' or '2' players are playing");
+                }
+            }
+            catch (ArgumentException e)
+            {
+                Console.WriteLine(e.Message);
+                RunGame();
+                return;
+            }
+            Player playerOne = new Player();
+            Player playerTwo = new Player();
             Human human = new Human();
             CPU computer = new CPU();
             Human human2 = new Human();
-
             while (playerOne.GetScore() < 2 && playerTwo.GetScore() < 2)
             {
                 switch (numOfPlayers)
@@ -34,7 +54,7 @@ namespace RPSSL
                         string randomCpuGesture = computer.GetRandomGesture();
                         computer.SetGesture(randomCpuGesture);
                         string cpuGesture = computer.GetGesture();
-                        Console.WriteLine(cpuGesture);
+                        Console.WriteLine("Player Two chooses: " + cpuGesture);
                         playerTwo = computer;
                         break;
                     case "2":
@@ -45,7 +65,7 @@ namespace RPSSL
                         playerTwo = human2;
                         break;
                     default:
-                        break;
+                        return;
                 }
                 CompareGestures(playerOne, playerTwo);
                 Console.WriteLine("Player One: " + playerOne.GetScore() + " " + "Player Two: " + playerTwo.GetScore());
